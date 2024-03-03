@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_meals/data/dummy_data.dart';
+import 'package:flutter_meals/widgets/category_grid_item.dart';
+
+class CategoryScreen extends StatelessWidget {
+  const CategoryScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Pick Your Category"),
+      ),
+      body: GridView(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 3 / 2,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20),
+        children: [
+          ...availableCategories.map((e) => CategoryGridItem(category: e))
+          // for (var category in availableCategories)
+          //   CategoryGridItem(category: category)
+        ],
+      ),
+    );
+  }
+}
