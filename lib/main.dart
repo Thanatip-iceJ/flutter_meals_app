@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meals/screens/category_screen.dart';
+import 'package:flutter_meals/screens/tabs_screen.dart';
 import 'package:flutter_meals/screens/theme.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const App());
+  runApp(const ProviderScope(child: App()));
 }
 
 class App extends StatefulWidget {
@@ -16,6 +17,6 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: initialTheme, home: CategoryScreen());
+    return MaterialApp(theme: initialTheme, home: const TabsScreen());
   }
 }
